@@ -22,21 +22,30 @@ header {
 
 header > h1 {
   font-size: 24px;
+  color: orange;
 }
 
-ul {
+header ul {
   list-style: none;
   display: flex;
   flex-direction: row;
   column-gap: 2rem;
 }
 
-a {
+header a {
   color: black;
   text-decoration: none;
 }
 
-#note-input {
+header li:hover {
+  scale: 105%;
+}
+
+header a:hover {
+  color: orange;
+}
+
+main #note-input {
   display: flex;
   flex-direction: column;
   background-color: white;
@@ -48,21 +57,21 @@ a {
   box-shadow: 0 3px 3px rgba(0, 0, 0, .3);
 }
 
-input {
+main input {
   border: none;
 }
 
-input:focus {
+main input:focus {
   outline: none;
 }
 
-.noteTitle {
+main .noteTitle {
   font-size: 24px;
   font-weight: bold;
   margin-bottom: 0.5rem;
 }
 
-#notes-container {
+main #notes-container {
   display: grid;
   grid-template-columns: auto auto auto auto;
   width: 80%;
@@ -71,24 +80,44 @@ input:focus {
   margin-bottom: 2rem;
 }
 
-.note {
+main .note {
   background-color: white;
   border-radius: 15px;
   padding: 1rem;
   box-shadow: 0 3px 3px rgba(0, 0, 0, .3);
 }
 
-.note:hover {
+main .note:hover {
   scale: 102%;
-  transition-delay: 0.3ms;
+  background-color: orange;
+  color: white;
+  box-shadow: 0 3px 3px rgba(95, 25, 0, 0.5);
 }
 
 footer {
-  background-color: lightgrey;
-  color: black;
+  background-color: orange;
+  color: white;
+  font-weight: 600;
   padding: .5rem;
   text-align: center;
   bottom: 0;
   width: 100%;
 }
 
+/*Responsive Design*/
+
+@media (max-width: 768px) {
+  main #notes-container {
+    grid-template-columns: repeat(3, 1fr);
+  } 
+}
+
+@media (max-width: 560px) {
+  main #notes-container {
+    grid-template-columns: 1fr;
+  }
+  header {
+    flex-direction: column;
+    gap: 15px;
+  }
+}
